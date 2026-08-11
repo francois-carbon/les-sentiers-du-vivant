@@ -1,0 +1,1002 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Les Sentiers du Vivant | Reconnexion, Clarté Mentale & Présence en Nature</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            emerald: '#055a4e',
+                            lightgreen: '#2d8a70',
+                            accent: '#e87348',
+                            warmbg: '#f8f6f0',
+                            sand: '#f0ebd8',
+                            dark: '#1c2826',
+                            leaf: '#3a7d44',
+                            sage: '#8ab092'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .gradient-hero {
+            background: linear-gradient(135deg, rgba(28,40,38,0.92) 0%, rgba(5,90,78,0.88) 100%), url('https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=2000&q=80') center/cover no-repeat;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+        }
+        .tab-active {
+            border-bottom: 3px solid #e87348;
+            color: #055a4e;
+            font-weight: 700;
+        }
+        .phase-card:hover {
+            transform: translateY(-4px);
+        }
+    </style>
+</head>
+<body class="bg-brand-warmbg text-brand-dark font-sans antialiased selection:bg-brand-accent selection:text-white">
+
+    <!-- Header Navigation Sticky -->
+    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md shadow-sm transition-all duration-300" id="mainHeader">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <a href="#" class="flex items-center gap-3 group" title="Les Sentiers du Vivant">
+                <div class="h-12 w-auto flex items-center gap-3">
+                    <svg viewBox="0 0 200 240" class="h-12 w-10 text-brand-emerald group-hover:scale-105 transition-transform duration-300 fill-current">
+                        <path d="M100 20 C 130 50, 160 80, 130 110 C 100 140, 60 160, 100 200 C 120 220, 150 230, 160 235 L 140 240 C 110 235, 80 215, 75 190 C 70 160, 120 135, 110 110 C 95 75, 70 50, 100 20 Z" fill="#1c2826" />
+                        <path d="M60 120 C 40 110, 30 130, 50 140 C 35 145, 45 165, 65 150 C 50 165, 70 180, 80 160 Z" fill="#2d8a70" />
+                        <path d="M80 60 C 65 50, 55 70, 75 80 C 60 85, 70 100, 85 90 Z" fill="#8ab092" />
+                        <path d="M140 140 C 160 130, 170 150, 150 160 C 165 165, 155 185, 135 170 C 150 185, 130 200, 120 180 Z" fill="#2d8a70" />
+                        <circle cx="82" cy="22" r="4" fill="#1c2826"/>
+                        <circle cx="102" cy="14" r="5" fill="#1c2826"/>
+                        <circle cx="122" cy="24" r="4" fill="#1c2826"/>
+                    </svg>
+                    <div class="flex flex-col">
+                        <span class="text-xl font-extrabold text-brand-emerald tracking-tight leading-none">Les sentiers</span>
+                        <span class="text-xs font-bold text-teal-700 tracking-wider">Du vivant</span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Navigation Desktop -->
+            <nav class="hidden xl:flex items-center gap-6 text-xs font-bold text-gray-700 uppercase tracking-wider">
+                <a href="#" class="text-brand-emerald border-b-2 border-brand-emerald pb-1">Accueil</a>
+                <a href="#methode" class="hover:text-brand-emerald transition-colors">La Méthode</a>
+                <a href="#impact" class="hover:text-brand-emerald transition-colors">Impact & Science</a>
+                <a href="#agenda" class="hover:text-brand-emerald transition-colors">Agenda & Inscriptions</a>
+                <a href="#equipe" class="hover:text-brand-emerald transition-colors">Triple Expertise</a>
+                <a href="#blog" class="hover:text-brand-emerald transition-colors">Blog & Livres</a>
+                <a href="#outils" class="hover:text-brand-emerald transition-colors text-brand-accent">Boîte à Outils</a>
+            </nav>
+
+            <div class="hidden sm:flex items-center gap-3">
+                <button onclick="openLmsModal(event)" class="px-3.5 py-2 rounded-full border border-brand-emerald/30 text-brand-emerald hover:bg-brand-emerald/5 text-xs font-bold transition-all flex items-center gap-1.5" title="Accès réseau facilitateurs & formation LMS">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                    <span>Portail LMS</span>
+                </button>
+                <a href="#contact" class="px-5 py-2.5 rounded-full bg-brand-accent hover:bg-orange-600 text-white font-semibold text-xs shadow-md hover:shadow-lg transition-all transform hover:-translate-y-0.5">
+                    Contact
+                </a>
+            </div>
+
+            <!-- Mobile Hamburger Button -->
+            <button id="mobileMenuBtn" class="xl:hidden p-2 text-gray-700 hover:text-brand-emerald focus:outline-none" aria-label="Menu">
+                <i class="fa-solid fa-bars text-2xl"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="hidden xl:hidden bg-white border-b border-gray-200 px-4 pt-2 pb-6 space-y-3">
+            <a href="#" class="block py-2 text-brand-emerald font-bold">Accueil</a>
+            <a href="#methode" class="block py-2 text-gray-700 hover:text-brand-emerald font-medium">La Méthode (6 Phases)</a>
+            <a href="#impact" class="block py-2 text-gray-700 hover:text-brand-emerald font-medium">Impact Scientifique & POMS/PANAS</a>
+            <a href="#agenda" class="block py-2 text-gray-700 hover:text-brand-emerald font-medium">Agenda & Sessions</a>
+            <a href="#equipe" class="block py-2 text-gray-700 hover:text-brand-emerald font-medium">Triple Expertise & Écosystème</a>
+            <a href="#blog" class="block py-2 text-gray-700 hover:text-brand-emerald font-medium">Blog & Ressources</a>
+            <a href="#outils" class="block py-2 text-brand-accent font-bold">Boîte à Outils Gratuit</a>
+            <button onclick="openLmsModal(event)" class="w-full text-left py-2 text-brand-emerald font-semibold text-sm flex items-center gap-2">
+                <i class="fa-solid fa-graduation-cap"></i> Portail Facilitateurs & Formation LMS
+            </button>
+            <a href="#contact" class="block w-full text-center mt-3 px-5 py-2.5 rounded-full bg-brand-accent text-white font-semibold text-sm">
+                Prendre contact
+            </a>
+        </div>
+    </header>
+
+    <!-- PAGE 1 : HERO IMMERSIF -->
+    <section class="relative gradient-hero text-white min-h-[88vh] flex items-center py-16 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-5xl mx-auto text-center space-y-8">
+            <div class="inline-flex items-center gap-3 px-5 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-brand-sand text-xs sm:text-sm font-medium">
+                <i class="fa-solid fa-tree text-brand-accent"></i>
+                <span>Dispositif d'itinérance pédagogique & ingénierie décisionnelle</span>
+            </div>
+            
+            <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight">
+                Une marche guidée pour se reconnecter à soi, <span class="text-brand-sand underline decoration-brand-accent decoration-wavy">aux autres et au vivant</span>
+            </h1>
+            
+            <p class="text-lg sm:text-xl text-gray-200 max-w-3xl mx-auto font-light leading-relaxed">
+                Une expérience immersive en pleine nature pour ralentir, clarifier vos pensées et renforcer votre qualité de présence. Du stress à la clarté décisionnelle grâce au triptyque <strong class="text-brand-sand font-semibold">Tête - Cœur - Corps</strong>.
+            </p>
+
+            <div class="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="#agenda" class="w-full sm:w-auto px-8 py-4 rounded-full bg-brand-accent hover:bg-orange-600 text-white font-bold text-base shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-0.5 flex items-center justify-center gap-3">
+                    <span>Voir les prochaines marches</span>
+                    <i class="fa-solid fa-calendar-alt text-sm"></i>
+                </a>
+                <a href="#methode" class="w-full sm:w-auto px-8 py-4 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-md text-white border border-white/30 font-semibold text-base transition-all flex items-center justify-center gap-3">
+                    <i class="fa-solid fa-compass text-brand-sand text-lg"></i>
+                    <span>Découvrir la méthode</span>
+                </a>
+            </div>
+
+            <!-- Badges de Ligne de Crête -->
+            <div class="pt-10 grid grid-cols-2 md:grid-cols-4 gap-4 text-xs sm:text-sm text-gray-300 border-t border-white/10">
+                <div class="flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-brain text-brand-sand"></i>
+                    <span>Neurosciences & Phytoncides</span>
+                </div>
+                <div class="flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-user-shield text-brand-sand"></i>
+                    <span>Psychomotricienne Diplômée d'État</span>
+                </div>
+                <div class="flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-leaf text-brand-sand"></i>
+                    <span>Institut de Biomimétisme (IRB)</span>
+                </div>
+                <div class="flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-ban text-brand-sand"></i>
+                    <span>Ni ésotérique ni médicalisé</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BLOC VIDÉO DE PRÉSENTATION -->
+    <section id="video-presentation" class="py-16 bg-white border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-gradient-to-r from-brand-emerald to-brand-dark rounded-3xl p-6 sm:p-10 text-white shadow-xl overflow-hidden relative">
+                <div class="grid md:grid-cols-12 gap-8 items-center relative z-10">
+                    <div class="md:col-span-7 space-y-5">
+                        <span class="inline-block px-3 py-1 rounded-md bg-white/10 text-brand-sand text-xs font-semibold uppercase tracking-wider">
+                            Vidéo de présentation – 2 minutes
+                        </span>
+                        <h2 class="text-2xl sm:text-4xl font-bold tracking-tight">
+                            Découvrez Les Sentiers du Vivant en 2 min
+                        </h2>
+                        <p class="text-gray-200 text-sm sm:text-base leading-relaxed font-light">
+                            Plongez au cœur de notre démarche. Découvrez comment la marche douce, alliée aux neurosciences et à la bio-inspiration, permet de réguler la charge mentale et de retrouver un espace de décision clair et apaisé.
+                        </p>
+                        
+                        <!-- Timeline du script vidéo -->
+                        <div class="space-y-2.5 pt-2">
+                            <div class="flex items-start gap-3 text-xs sm:text-sm">
+                                <span class="px-2 py-0.5 rounded bg-brand-accent font-mono text-white text-xs">00:15</span>
+                                <p><strong class="text-brand-sand">Le Cadre :</strong> Une marche immersive structurée appuyée sur la bio-inspiration.</p>
+                            </div>
+                            <div class="flex items-start gap-3 text-xs sm:text-sm">
+                                <span class="px-2 py-0.5 rounded bg-brand-accent font-mono text-white text-xs">00:30</span>
+                                <p><strong class="text-brand-sand">Le Corps :</strong> Ralentir, respirer et réapprendre à habiter ses sensations avec notre psychomotricienne D.E.</p>
+                            </div>
+                            <div class="flex items-start gap-3 text-xs sm:text-sm">
+                                <span class="px-2 py-0.5 rounded bg-brand-accent font-mono text-white text-xs">00:50</span>
+                                <p><strong class="text-brand-sand">Le Cœur :</strong> Écoute active en binôme et émergence d'un lien humain confiant.</p>
+                            </div>
+                            <div class="flex items-start gap-3 text-xs sm:text-sm">
+                                <span class="px-2 py-0.5 rounded bg-brand-accent font-mono text-white text-xs">01:10</span>
+                                <p><strong class="text-brand-sand">La Tête :</strong> Analogies du vivant pour éclairer nos enjeux complexes et retrouver la clarté.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Lecteur / Aperçu vidéo -->
+                    <div class="md:col-span-5">
+                        <div class="relative aspect-video rounded-2xl bg-black/40 border border-white/20 overflow-hidden shadow-2xl flex flex-col items-center justify-center group cursor-pointer" id="videoMock">
+                            <img src="https://images.unsplash.com/photo-1511497584788-8767611136f6?auto=format&fit=crop&w=800&q=80" alt="Forêt Réunionnaise" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-105 transition-transform duration-500">
+                            <div class="w-16 h-16 rounded-full bg-brand-accent text-white flex items-center justify-center text-xl shadow-lg relative z-10 group-hover:scale-110 transition-transform">
+                                <i class="fa-solid fa-play ml-1"></i>
+                            </div>
+                            <span class="relative z-10 text-white font-medium text-xs mt-3 bg-black/60 px-3 py-1 rounded-full backdrop-blur-sm">
+                                Regarder la vidéo & audio (2:05)
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- LE CONCEPT EN BREF & CHIFFRES DE RÉASSURANCE -->
+    <section class="py-20 bg-brand-warmbg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-6 space-y-6">
+                    <span class="px-3 py-1 bg-brand-sand text-brand-emerald text-xs font-extrabold uppercase tracking-wider rounded-full">
+                        Le Concept en Bref
+                    </span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-brand-emerald">
+                        Et si la clarté se cachait dans les arbres ?
+                    </h2>
+                    <p class="text-gray-700 text-sm sm:text-base leading-relaxed font-light">
+                        Face à l'infobésité et à la surcharge cognitive, Les Sentiers du Vivant proposent une respiration stratégique. À travers un protocole rigoureux d'itinérance pédagogique, nous transformons une marche de 2h30 en un levier d'action concret.
+                    </p>
+                    <p class="text-gray-700 text-sm sm:text-base leading-relaxed font-light">
+                        Le résultat ? Un apaisement immédiat qui libère <strong class="text-gray-900 font-semibold">jusqu'à 20 heures de productivité et de clarté mentale</strong> pour trancher sereinement vos décisions les plus complexes.
+                    </p>
+
+                    <div class="p-4 rounded-2xl bg-white border border-gray-200 shadow-sm flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-xl bg-brand-emerald/10 text-brand-emerald flex items-center justify-center text-xl font-bold flex-shrink-0">
+                            <i class="fa-solid fa-hourglass-half"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-xs font-bold text-gray-900 uppercase">Le Paradoxe de la Slow Efficiency</h4>
+                            <p class="text-xs text-gray-600 font-light">En ralentissant le corps, le cerveau accélère sa vitesse de traitement sans les parasites du quotidien.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Chiffres de réassurance -->
+                <div class="lg:col-span-6 grid grid-cols-2 gap-4">
+                    <div class="bg-white p-6 rounded-3xl border border-gray-100 shadow-sm text-center space-y-2">
+                        <span class="block text-3xl sm:text-4xl font-extrabold text-brand-accent">- 63 %</span>
+                        <span class="block text-xs font-bold text-gray-800 uppercase tracking-wide">De charge mentale</span>
+                        <p class="text-[11px] text-gray-500 font-light">Réduction significative du stress perçu pendant et après la marche.</p>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-3xl border border-gray-100 shadow-sm text-center space-y-2">
+                        <span class="block text-3xl sm:text-4xl font-extrabold text-brand-emerald">+ 83 %</span>
+                        <span class="block text-xs font-bold text-gray-800 uppercase tracking-wide">De Clarté Mentale</span>
+                        <p class="text-[11px] text-gray-500 font-light">Gain de discernement sur les choix complexes ou stratégiques.</p>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-3xl border border-gray-100 shadow-sm text-center space-y-2">
+                        <span class="block text-3xl sm:text-4xl font-extrabold text-brand-emerald">+ 88 %</span>
+                        <span class="block text-xs font-bold text-gray-800 uppercase tracking-wide">De Créativité</span>
+                        <p class="text-[11px] text-gray-500 font-light">Émergence de nouvelles perspectives grâce au vagabondage attentionnel.</p>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-3xl border border-gray-100 shadow-sm text-center space-y-2">
+                        <span class="block text-3xl sm:text-4xl font-extrabold text-brand-accent">+ 93 %</span>
+                        <span class="block text-xs font-bold text-gray-800 uppercase tracking-wide">De Communication</span>
+                        <p class="text-[11px] text-gray-500 font-light">Fluidité relationnelle et écoute empathique dans les binômes.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PAGE 2 : L'EXPÉRIENCE & MÉTHODE 6 PHASES -->
+    <section id="methode" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-brand-accent font-bold text-sm uppercase tracking-wider">Un Accompagnement Structuré</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-brand-emerald mt-2">
+                    La Méthode Tête – Cœur – Corps
+                </h2>
+                <p class="text-gray-600 mt-4 text-base sm:text-lg font-light leading-relaxed">
+                    Notre approche n'est ni sportive, ni ésotérique. Elle suit une progression claire en 6 phases, mobilisant les dimensions Tête (réflexion), Cœur (émotions) et Corps (action) pour une expérience sécurisée et respectueuse.
+                </p>
+            </div>
+
+            <!-- Triptyque Tête-Cœur-Corps -->
+            <div class="grid md:grid-cols-3 gap-8 mb-16">
+                <div class="bg-brand-warmbg rounded-3xl p-8 border border-gray-200">
+                    <div class="w-12 h-12 rounded-2xl bg-blue-100 text-blue-700 flex items-center justify-center text-xl font-bold mb-4">
+                        <i class="fa-solid fa-brain"></i>
+                    </div>
+                    <span class="text-xs font-extrabold text-blue-600 uppercase tracking-wider">TÊTE</span>
+                    <h3 class="text-xl font-bold text-gray-900 mt-1 mb-2">Analyse & Clarté</h3>
+                    <p class="text-xs text-gray-600 font-light leading-relaxed">
+                        Bio-inspiration et neurosciences pour débloquer la réflexion stratégique et structurer les décisions sans surcharge.
+                    </p>
+                </div>
+
+                <div class="bg-brand-warmbg rounded-3xl p-8 border border-gray-200">
+                    <div class="w-12 h-12 rounded-2xl bg-rose-100 text-brand-accent flex items-center justify-center text-xl font-bold mb-4">
+                        <i class="fa-solid fa-heart"></i>
+                    </div>
+                    <span class="text-xs font-extrabold text-brand-accent uppercase tracking-wider">CŒUR</span>
+                    <h3 class="text-xl font-bold text-gray-900 mt-1 mb-2">Émotions & Lien</h3>
+                    <p class="text-xs text-gray-600 font-light leading-relaxed">
+                        Écoute profonde en binôme et cercles de partage bienveillants pour apaiser le système nerveux et libérer la parole.
+                    </p>
+                </div>
+
+                <div class="bg-brand-warmbg rounded-3xl p-8 border border-gray-200">
+                    <div class="w-12 h-12 rounded-2xl bg-emerald-100 text-brand-emerald flex items-center justify-center text-xl font-bold mb-4">
+                        <i class="fa-solid fa-person-walking"></i>
+                    </div>
+                    <span class="text-xs font-extrabold text-brand-emerald uppercase tracking-wider">CORPS</span>
+                    <h3 class="text-xl font-bold text-gray-900 mt-1 mb-2">Sensation & Sécurité</h3>
+                    <p class="text-xs text-gray-600 font-light leading-relaxed">
+                        Encadré par notre psychomotricienne D.E. : respiration, proprioception, prévention des chutes et marche sensorielle douce.
+                    </p>
+                </div>
+            </div>
+
+            <!-- DÉTAIL DES 6 PHASES DU PROTOCOLE -->
+            <div class="space-y-6">
+                <h3 class="text-2xl font-extrabold text-brand-emerald text-center mb-8">Les 6 Phases du Protocole Guidé</h3>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="phase-card p-6 rounded-2xl bg-brand-warmbg border border-gray-200 transition-all shadow-sm">
+                        <span class="w-8 h-8 rounded-full bg-brand-emerald text-white font-bold text-xs flex items-center justify-center mb-3">1</span>
+                        <h4 class="text-base font-bold text-gray-900 mb-1">1. Intention & Ancrage</h4>
+                        <p class="text-xs text-gray-600 font-light leading-relaxed">
+                            Accueillir les participants, poser le cadre de sécurité et préparer le corps et l’esprit par une respiration d'ancrage.
+                        </p>
+                    </div>
+
+                    <div class="phase-card p-6 rounded-2xl bg-brand-warmbg border border-gray-200 transition-all shadow-sm">
+                        <span class="w-8 h-8 rounded-full bg-brand-emerald text-white font-bold text-xs flex items-center justify-center mb-3">2</span>
+                        <h4 class="text-base font-bold text-gray-900 mb-1">2. Attention & Éveil sensoriel</h4>
+                        <p class="text-xs text-gray-600 font-light leading-relaxed">
+                            Ralentir, affiner sa perception (odeurs, sons, formes fractales) et sortir du pilotage automatique.
+                        </p>
+                    </div>
+
+                    <div class="phase-card p-6 rounded-2xl bg-brand-warmbg border border-gray-200 transition-all shadow-sm">
+                        <span class="w-8 h-8 rounded-full bg-brand-emerald text-white font-bold text-xs flex items-center justify-center mb-3">3</span>
+                        <h4 class="text-base font-bold text-gray-900 mb-1">3. Marche en binôme & exploration</h4>
+                        <p class="text-xs text-gray-600 font-light leading-relaxed">
+                            Avancer avec l’autre dans une écoute attentive sans interruption, pour cheminer côte à côte.
+                        </p>
+                    </div>
+
+                    <div class="phase-card p-6 rounded-2xl bg-brand-warmbg border border-gray-200 transition-all shadow-sm">
+                        <span class="w-8 h-8 rounded-full bg-brand-emerald text-white font-bold text-xs flex items-center justify-center mb-3">4</span>
+                        <h4 class="text-base font-bold text-gray-900 mb-1">4. Cercle de feedback ouvert</h4>
+                        <p class="text-xs text-gray-600 font-light leading-relaxed">
+                            Partager ce qui a émergé sans jugement, éclairé par les analogies bio-inspirées du vivant.
+                        </p>
+                    </div>
+
+                    <div class="phase-card p-6 rounded-2xl bg-brand-warmbg border border-gray-200 transition-all shadow-sm">
+                        <span class="w-8 h-8 rounded-full bg-brand-emerald text-white font-bold text-xs flex items-center justify-center mb-3">5</span>
+                        <h4 class="text-base font-bold text-gray-900 mb-1">5. Consolidation collective</h4>
+                        <p class="text-xs text-gray-600 font-light leading-relaxed">
+                            Structurer les apprentissages vécus et faire des liens concrets avec le quotidien professionnel ou personnel.
+                        </p>
+                    </div>
+
+                    <div class="phase-card p-6 rounded-2xl bg-brand-warmbg border border-gray-200 transition-all shadow-sm">
+                        <span class="w-8 h-8 rounded-full bg-brand-emerald text-white font-bold text-xs flex items-center justify-center mb-3">6</span>
+                        <h4 class="text-base font-bold text-gray-900 mb-1">6. Clôture intégrative</h4>
+                        <p class="text-xs text-gray-600 font-light leading-relaxed">
+                            Ancrer l’après dans le présent et repartir avec des repères simples (fiole olfactive, fiches réutilisables).
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PAGE 3 : AGENDA & INSCRIPTIONS -->
+    <section id="agenda" class="py-20 bg-brand-warmbg border-y border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="text-brand-accent font-bold text-sm uppercase tracking-wider">Agenda & Sessions</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-brand-emerald mt-2">
+                    Trouvez votre parcours de marche
+                </h2>
+                <p class="text-gray-600 mt-2 text-sm sm:text-base">
+                    Sélectionnez votre profil ou votre territoire pour afficher les prochaines immersions disponibles.
+                </p>
+            </div>
+
+            <!-- Filtres de recherche dynamiques -->
+            <div class="bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-gray-200 mb-8">
+                <div class="grid md:grid-cols-3 gap-4 mb-6">
+                    <div>
+                        <label class="block text-xs font-bold text-gray-700 uppercase mb-2">Profil / Intention</label>
+                        <select id="filterCategory" onchange="filterSessions()" class="w-full px-4 py-3 rounded-xl border border-gray-300 text-xs sm:text-sm focus:ring-2 focus:ring-brand-emerald focus:outline-none">
+                            <option value="all">Tous les publics</option>
+                            <option value="entreprise">Entreprises & Dirigeants (QVT / Stratégie)</option>
+                            <option value="senior">Seniors & Aidants (Silver Éco / SAP)</option>
+                            <option value="grandpublic">Grand Public & Individuels</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold text-gray-700 uppercase mb-2">Territoire d'expérimentation</label>
+                        <select id="filterTerritory" onchange="filterSessions()" class="w-full px-4 py-3 rounded-xl border border-gray-300 text-xs sm:text-sm focus:ring-2 focus:ring-brand-emerald focus:outline-none">
+                            <option value="all">Tous les territoires</option>
+                            <option value="reunion">La Réunion (Étang-Salé, Maïdo...)</option>
+                            <option value="hautlanguedoc">Occitanie (PNR Haut-Languedoc)</option>
+                            <option value="idf">Île-de-France (Biomim'Expo)</option>
+                            <option value="rhone">Auvergne-Rhône-Alpes (Vallée du Rhône)</option>
+                        </select>
+                    </div>
+
+                    <div class="flex items-end">
+                        <button onclick="resetFilters()" class="w-full py-3 rounded-xl border border-gray-300 text-gray-600 hover:bg-gray-50 text-xs font-bold transition-all">
+                            Réinitialiser la recherche
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Grille des Sessions -->
+                <div class="grid md:grid-cols-3 gap-6" id="sessionsGrid">
+                    <!-- Session 1 -->
+                    <div class="session-card bg-brand-warmbg p-6 rounded-2xl border border-gray-200 space-y-4" data-category="entreprise" data-territory="reunion">
+                        <div class="flex justify-between items-start">
+                            <span class="px-2.5 py-1 bg-emerald-100 text-brand-emerald text-[10px] font-bold rounded-full uppercase">B2B / QVT</span>
+                            <span class="text-xs font-mono text-gray-500"><i class="fa-solid fa-location-dot text-brand-accent"></i> La Réunion</span>
+                        </div>
+                        <h4 class="font-bold text-gray-900 text-sm">Séminaire Stratégique & Clarté Décisionnelle</h4>
+                        <p class="text-xs text-gray-600 font-light">Forêt de l'Étang-Salé • Format demi-journée (6 à 10 personnes).</p>
+                        <div class="pt-2 border-t border-gray-200 flex items-center justify-between">
+                            <span class="text-xs font-bold text-brand-emerald">Sur devis B2B / OPCO</span>
+                            <a href="#contact" class="px-4 py-2 bg-brand-emerald text-white rounded-xl text-xs font-bold hover:bg-brand-dark transition-colors">Demander un devis</a>
+                        </div>
+                    </div>
+
+                    <!-- Session 2 -->
+                    <div class="session-card bg-brand-warmbg p-6 rounded-2xl border border-gray-200 space-y-4" data-category="senior" data-territory="reunion">
+                        <div class="flex justify-between items-start">
+                            <span class="px-2.5 py-1 bg-amber-100 text-amber-800 text-[10px] font-bold rounded-full uppercase">Senior & Aidant</span>
+                            <span class="text-xs font-mono text-gray-500"><i class="fa-solid fa-location-dot text-brand-accent"></i> La Réunion</span>
+                        </div>
+                        <h4 class="font-bold text-gray-900 text-sm">Marche Sensorielle & Autonomie (Silver Éco)</h4>
+                        <p class="text-xs text-gray-600 font-light">Sentier littoral sécurisé • Encadré par psychomotricienne D.E. & Tamarins Services.</p>
+                        <div class="pt-2 border-t border-gray-200 flex items-center justify-between">
+                            <span class="text-xs font-bold text-brand-emerald">Éligible Crédit d'impôt 50%</span>
+                            <a href="#contact" class="px-4 py-2 bg-brand-accent text-white rounded-xl text-xs font-bold hover:bg-orange-600 transition-colors">S'inscrire</a>
+                        </div>
+                    </div>
+
+                    <!-- Session 3 -->
+                    <div class="session-card bg-brand-warmbg p-6 rounded-2xl border border-gray-200 space-y-4" data-category="grandpublic" data-territory="hautlanguedoc">
+                        <div class="flex justify-between items-start">
+                            <span class="px-2.5 py-1 bg-purple-100 text-purple-800 text-[10px] font-bold rounded-full uppercase">Grand Public</span>
+                            <span class="text-xs font-mono text-gray-500"><i class="fa-solid fa-location-dot text-brand-accent"></i> PNR Haut-Languedoc</span>
+                        </div>
+                        <h4 class="font-bold text-gray-900 text-sm">Parcours d'Itinérance Intergénérationnelle</h4>
+                        <p class="text-xs text-gray-600 font-light">Espace naturel protégé • Binômes seniors & jeunes en quête de ressourcement.</p>
+                        <div class="pt-2 border-t border-gray-200 flex items-center justify-between">
+                            <span class="text-xs font-bold text-brand-emerald">Session 2h30</span>
+                            <a href="#contact" class="px-4 py-2 bg-brand-emerald text-white rounded-xl text-xs font-bold hover:bg-brand-dark transition-colors">S'inscrire</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PAGE 4 : ÉQUIPE & ÉCOSYSTÈME (TRIPLE EXPERTISE) -->
+    <section id="equipe" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-brand-accent font-bold text-sm uppercase tracking-wider">Notre Triple Expertise</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-brand-emerald mt-2">
+                    Un cadre encadré par des professionnels pluridisciplinaires
+                </h2>
+                <p class="text-gray-600 mt-3 text-sm sm:text-base font-light">
+                    La fusion d'expertises reconnues en facilitation, psychomotricité et biomimétisme garantit un accompagnement rigoureux et sécurisé.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8 mb-16">
+                <!-- Cercle 1 : François Miyeli -->
+                <div class="bg-brand-warmbg rounded-3xl p-8 border border-gray-200 flex flex-col justify-between shadow-sm">
+                    <div class="space-y-4">
+                        <div class="w-20 h-20 rounded-full bg-brand-emerald text-white font-bold text-2xl flex items-center justify-center shadow-md">
+                            FM
+                        </div>
+                        <div>
+                            <span class="px-2.5 py-0.5 rounded bg-brand-sand text-brand-emerald text-[11px] font-bold">Cercle 1 – Facilitation</span>
+                            <h3 class="text-xl font-bold text-gray-900 mt-1">François Miyeli</h3>
+                            <p class="text-xs text-brand-accent font-semibold">Concepteur du programme & Facilitateur</p>
+                        </div>
+                        <p class="text-xs text-gray-600 leading-relaxed font-light">
+                            Président de Nature & Stratégie et fondateur de Carbon Conseil. Il garantit le cadre méthodologique (ingénierie pédagogique, intelligence collective) et le transfert concret vers la décision stratégique.
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-gray-200 mt-6 text-[11px] text-gray-500">
+                        <i class="fa-solid fa-shield-halved text-brand-emerald mr-1"></i> Stratégie & Gouvernance
+                    </div>
+                </div>
+
+                <!-- Cercle 2 : Géraldine Bazile -->
+                <div class="bg-brand-warmbg rounded-3xl p-8 border border-gray-200 flex flex-col justify-between shadow-sm">
+                    <div class="space-y-4">
+                        <div class="w-20 h-20 rounded-full bg-brand-lightgreen text-white font-bold text-2xl flex items-center justify-center shadow-md">
+                            GB
+                        </div>
+                        <div>
+                            <span class="px-2.5 py-0.5 rounded bg-emerald-50 text-brand-emerald text-[11px] font-bold">Cercle 2 – Ancrage Corporel</span>
+                            <h3 class="text-xl font-bold text-gray-900 mt-1">Géraldine Bazile</h3>
+                            <p class="text-xs text-brand-accent font-semibold">Psychomotricienne Diplômée d'État</p>
+                        </div>
+                        <p class="text-xs text-gray-600 leading-relaxed font-light">
+                            Elle intervient sur l'ancrage corporel, la conscience sensorielle, la proprioception et la prévention des risques (chutes), dans un cadre strictement non thérapeutique.
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-gray-200 mt-6 text-[11px] text-gray-500">
+                        <i class="fa-solid fa-user-doctor text-brand-emerald mr-1"></i> Diplôme d'État de Psychomotricité
+                    </div>
+                </div>
+
+                <!-- Cercle 3 : Maxime Garnier -->
+                <div class="bg-brand-warmbg rounded-3xl p-8 border border-gray-200 flex flex-col justify-between shadow-sm">
+                    <div class="space-y-4">
+                        <div class="w-20 h-20 rounded-full bg-brand-accent text-white font-bold text-2xl flex items-center justify-center shadow-md">
+                            MG
+                        </div>
+                        <div>
+                            <span class="px-2.5 py-0.5 rounded bg-orange-100 text-brand-accent text-[11px] font-bold">Cercle 3 – Bio-inspiration</span>
+                            <h3 class="text-xl font-bold text-gray-900 mt-1">Maxime Garnier</h3>
+                            <p class="text-xs text-brand-accent font-semibold">Expert Biomimétisme & Président IRB Réunion</p>
+                        </div>
+                        <p class="text-xs text-gray-600 leading-relaxed font-light">
+                            Président de l'Institut Régional de Biomimétisme à La Réunion (IRB). Il apporte une grille de lecture éclairante traduisant le fonctionnement des écosystèmes en analogies puissantes pour nos organisations.
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-gray-200 mt-6 text-[11px] text-gray-500">
+                        <i class="fa-solid fa-seedling text-brand-accent mr-1"></i> Institut Régional de Biomimétisme
+                    </div>
+                </div>
+            </div>
+
+            <!-- Partenaire Opérationnel Clé -->
+            <div class="bg-gradient-to-r from-brand-sand/60 to-white rounded-3xl p-8 border border-brand-lightgreen/20 flex flex-col sm:flex-row items-center justify-between gap-6">
+                <div class="space-y-2">
+                    <span class="px-2.5 py-0.5 bg-brand-emerald text-white text-[10px] font-bold rounded-full">Partenaire Opérationnel Terrain</span>
+                    <h4 class="text-lg font-bold text-brand-emerald">Tamarins Services (Services à la Personne)</h4>
+                    <p class="text-xs text-gray-700 leading-relaxed max-w-2xl">
+                        Facilite l'organisation logistique et la mise en relation auprès des bénéficiaires seniors, des aidants et des familles pour la verticale Silver Économie (Crédit d'impôt 50%).
+                    </p>
+                </div>
+                <a href="#contact" class="px-6 py-3 bg-brand-emerald text-white rounded-full text-xs font-bold hover:bg-brand-dark transition-colors whitespace-nowrap">
+                    Devenir Partenaire Territoire
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- PAGE 5 : BLOG & RESSOURCES (NOUVEAU) -->
+    <section id="blog" class="py-20 bg-brand-warmbg border-t border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-brand-accent font-bold text-sm uppercase tracking-wider">Nourrir sa réflexion</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-brand-emerald mt-2">
+                    Blog, Décryptages & Bibliographie
+                </h2>
+                <p class="text-gray-600 mt-3 text-sm sm:text-base font-light">
+                    Articles de fond, retours d'expériences territoriales et lectures inspirantes sur le vivant et la robustesse humaine.
+                </p>
+            </div>
+
+            <!-- Articles -->
+            <div class="grid md:grid-cols-3 gap-8 mb-16">
+                <article class="bg-white rounded-3xl overflow-hidden border border-gray-200 shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+                    <div class="p-6 space-y-3">
+                        <span class="text-[10px] font-extrabold text-brand-accent uppercase tracking-wider">Article 1 • Neurosciences</span>
+                        <h3 class="text-base font-bold text-gray-900 leading-snug">
+                            La "Slow Efficiency" : comment ralentir le corps accélère la clarté décisionnelle
+                        </h3>
+                        <p class="text-xs text-gray-600 font-light leading-relaxed">
+                            Dans un monde obsédé par la vitesse, ralentir le pas en forêt réactive la vitesse de traitement du cortex préfrontal sans les interruptions du bureau.
+                        </p>
+                    </div>
+                    <div class="p-6 pt-0 border-t border-gray-100 flex items-center justify-between text-xs text-brand-emerald font-bold">
+                        <span>Par François Miyeli</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </div>
+                </article>
+
+                <article class="bg-white rounded-3xl overflow-hidden border border-gray-200 shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+                    <div class="p-6 space-y-3">
+                        <span class="text-[10px] font-extrabold text-brand-emerald uppercase tracking-wider">Article 2 • Bio-inspiration</span>
+                        <h3 class="text-base font-bold text-gray-900 leading-snug">
+                            Biomimétisme : ce que la forêt nous apprend sur la coopération en entreprise
+                        </h3>
+                        <p class="text-xs text-gray-600 font-light leading-relaxed">
+                            Des réseaux mycorhiziens aux écotones, découvrez comment les systèmes vivants gèrent l'incertitude et optimisent le partage de ressources.
+                        </p>
+                    </div>
+                    <div class="p-6 pt-0 border-t border-gray-100 flex items-center justify-between text-xs text-brand-emerald font-bold">
+                        <span>Par Maxime Garnier (IRB)</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </div>
+                </article>
+
+                <article class="bg-white rounded-3xl overflow-hidden border border-gray-200 shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+                    <div class="p-6 space-y-3">
+                        <span class="text-[10px] font-extrabold text-amber-800 uppercase tracking-wider">Article 3 • Silver Éco</span>
+                        <h3 class="text-base font-bold text-gray-900 leading-snug">
+                            Prévention et autonomie : les bienfaits de la marche sensorielle pour les seniors
+                        </h3>
+                        <p class="text-xs text-gray-600 font-light leading-relaxed">
+                            Comment stimuler la proprioception, prévenir les risques de chute et rompre l'isolement social par une immersion douce en nature.
+                        </p>
+                    </div>
+                    <div class="p-6 pt-0 border-t border-gray-100 flex items-center justify-between text-xs text-brand-emerald font-bold">
+                        <span>Par Géraldine Bazile (D.E.)</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </div>
+                </article>
+            </div>
+
+            <!-- Bibliographie inspirante -->
+            <div class="bg-white rounded-3xl p-8 border border-gray-200">
+                <h3 class="text-xl font-bold text-brand-emerald mb-6 text-center">
+                    <i class="fa-solid fa-book-open text-brand-accent mr-2"></i> Les lectures qui nous inspirent
+                </h3>
+                <div class="grid sm:grid-cols-3 gap-6 text-xs">
+                    <div class="p-4 rounded-2xl bg-brand-warmbg space-y-2 border border-gray-100">
+                        <strong class="block text-gray-900 font-bold text-sm">Shinrin-Yoku : L'art et la science du bain de forêt</strong>
+                        <span class="text-brand-accent font-medium block">Dr Qing Li</span>
+                        <p class="text-gray-600 font-light">L'ouvrage scientifique fondateur démontrant l'effet des phytoncides sur le système immunitaire et le stress.</p>
+                    </div>
+
+                    <div class="p-4 rounded-2xl bg-brand-warmbg space-y-2 border border-gray-100">
+                        <strong class="block text-gray-900 font-bold text-sm">Le Bug Humain</strong>
+                        <span class="text-brand-accent font-medium block">Sébastien Bohler</span>
+                        <p class="text-gray-600 font-light">Une analyse neuroscience indispensable pour comprendre le fonctionnement de notre striatum et nos biais attentionnels.</p>
+                    </div>
+
+                    <div class="p-4 rounded-2xl bg-brand-warmbg space-y-2 border border-gray-100">
+                        <strong class="block text-gray-900 font-bold text-sm">Biomimétisme : Quand la nature inspire des innovations durables</strong>
+                        <span class="text-brand-accent font-medium block">Janine Benyus</span>
+                        <p class="text-gray-600 font-light">Le livre de référence expliquant comment le vivant résout ses défis complexes depuis 3,8 milliards d'années.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PAGE 6 : LA BOÎTE À OUTILS (NOUVEAU - ESPACE TÉLÉCHARGEMENTS) -->
+    <section id="outils" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-brand-accent font-bold text-sm uppercase tracking-wider">Vos Repères Réutilisables</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-brand-emerald mt-2">
+                    Votre Boîte à Outils en Libre Accès
+                </h2>
+                <p class="text-gray-600 mt-3 text-sm sm:text-base font-light">
+                    L'expérience des Sentiers du Vivant ne s'arrête pas à la sortie de la forêt. Nous mettons à votre disposition des exercices pratiques pour intégrer la régulation attentionnelle dans votre quotidien.
+                </p>
+            </div>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Outil 1 -->
+                <div class="bg-brand-warmbg rounded-3xl p-6 border border-gray-200 flex flex-col justify-between space-y-4 hover:border-brand-emerald transition-all shadow-sm">
+                    <div class="space-y-3">
+                        <div class="w-12 h-12 rounded-2xl bg-emerald-100 text-brand-emerald flex items-center justify-center text-xl font-bold">
+                            <i class="fa-solid fa-wind"></i>
+                        </div>
+                        <h3 class="text-base font-bold text-gray-900">La Cohérence Cardiaque (Rythme 3-6)</h3>
+                        <p class="text-xs text-gray-600 font-light leading-relaxed">
+                            Réguler le système nerveux et faire baisser la charge mentale en 5 minutes grâce à l'expiration prolongée.
+                        </p>
+                    </div>
+                    <button onclick="openToolModal('coherence')" class="w-full py-2.5 bg-brand-emerald text-white rounded-xl text-xs font-bold hover:bg-brand-dark transition-colors flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-download"></i> Télécharger la fiche
+                    </button>
+                </div>
+
+                <!-- Outil 2 -->
+                <div class="bg-brand-warmbg rounded-3xl p-6 border border-gray-200 flex flex-col justify-between space-y-4 hover:border-brand-emerald transition-all shadow-sm">
+                    <div class="space-y-3">
+                        <div class="w-12 h-12 rounded-2xl bg-blue-100 text-blue-700 flex items-center justify-center text-xl font-bold">
+                            <i class="fa-solid fa-eye"></i>
+                        </div>
+                        <h3 class="text-base font-bold text-gray-900">L'Exercice d'Ancrage 5-4-3-2-1</h3>
+                        <p class="text-xs text-gray-600 font-light leading-relaxed">
+                            Technique neuro-sensorielle simple pour sortir du pilotage automatique et du stress en mobilisant vos 5 sens.
+                        </p>
+                    </div>
+                    <button onclick="openToolModal('ancrage')" class="w-full py-2.5 bg-brand-emerald text-white rounded-xl text-xs font-bold hover:bg-brand-dark transition-colors flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-download"></i> Télécharger le guide
+                    </button>
+                </div>
+
+                <!-- Outil 3 -->
+                <div class="bg-brand-warmbg rounded-3xl p-6 border border-gray-200 flex flex-col justify-between space-y-4 hover:border-brand-emerald transition-all shadow-sm">
+                    <div class="space-y-3">
+                        <div class="w-12 h-12 rounded-2xl bg-rose-100 text-brand-accent flex items-center justify-center text-xl font-bold">
+                            <i class="fa-solid fa-chart-line"></i>
+                        </div>
+                        <h3 class="text-base font-bold text-gray-900">L'Échelle PANAS (Auto-évaluation)</h3>
+                        <p class="text-xs text-gray-600 font-light leading-relaxed">
+                            Matrice validée (Positive and Negative Affect Schedule) pour auto-évaluer votre qualité de présence et votre humeur.
+                        </p>
+                    </div>
+                    <button onclick="openToolModal('panas')" class="w-full py-2.5 bg-brand-emerald text-white rounded-xl text-xs font-bold hover:bg-brand-dark transition-colors flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-download"></i> Télécharger la matrice
+                    </button>
+                </div>
+
+                <!-- Outil 4 -->
+                <div class="bg-brand-warmbg rounded-3xl p-6 border border-gray-200 flex flex-col justify-between space-y-4 hover:border-brand-emerald transition-all shadow-sm">
+                    <div class="space-y-3">
+                        <div class="w-12 h-12 rounded-2xl bg-amber-100 text-amber-800 flex items-center justify-center text-xl font-bold">
+                            <i class="fa-solid fa-flask"></i>
+                        </div>
+                        <h3 class="text-base font-bold text-gray-900">La Fiole d'Ancrage Olfactif</h3>
+                        <p class="text-xs text-gray-600 font-light leading-relaxed">
+                            Chaque participant repart avec une fiole d'huile essentielle végétale pour réactiver instantanément l'état d'apaisement vécu.
+                        </p>
+                    </div>
+                    <button onclick="openToolModal('fiole')" class="w-full py-2.5 bg-brand-accent text-white rounded-xl text-xs font-bold hover:bg-orange-600 transition-colors flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-circle-info"></i> Découvrir l'artefact
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT FORM -->
+    <section id="contact" class="py-20 bg-brand-emerald text-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <span class="text-brand-sand font-bold text-sm uppercase tracking-wider">Entrer en Contact</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold mt-2">
+                    Prêt à vivre une expérience guidée en pleine nature ?
+                </h2>
+                <p class="text-gray-200 text-sm mt-3 font-light">
+                    Inscription individuelle, séminaire d'entreprise QVT, ou candidature au réseau de facilitateurs (Licence LMS).
+                </p>
+            </div>
+
+            <form class="bg-white text-gray-800 rounded-3xl p-8 shadow-2xl space-y-6" onsubmit="handleFormSubmit(event)">
+                <div class="grid sm:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-xs font-bold uppercase tracking-wider text-gray-700 mb-2">Nom & Prénom *</label>
+                        <input type="text" required placeholder="Votre nom complet" class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-brand-emerald text-sm">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold uppercase tracking-wider text-gray-700 mb-2">Courriel *</label>
+                        <input type="email" required placeholder="votre@email.com" class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-brand-emerald text-sm">
+                    </div>
+                </div>
+
+                <div class="grid sm:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-xs font-bold uppercase tracking-wider text-gray-700 mb-2">Téléphone</label>
+                        <input type="tel" placeholder="+262 692..." class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-brand-emerald text-sm">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold uppercase tracking-wider text-gray-700 mb-2">Profil / Projet *</label>
+                        <select required class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-brand-emerald text-sm">
+                            <option value="">Sélectionnez votre profil</option>
+                            <option value="entreprise">Entreprise / Dirigeant (QVT & Séminaire)</option>
+                            <option value="senior">Senior / Famille (Silver Éco)</option>
+                            <option value="aidant">Aidant familial / Particulier</option>
+                            <option value="institution">Institution / Partenaire territorial</option>
+                            <option value="facilitateur">Candidat Facilitateur / Franchise LMS</option>
+                            <option value="autre">Autre demande</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold uppercase tracking-wider text-gray-700 mb-2">Votre Message *</label>
+                    <textarea rows="4" required placeholder="Précisez votre demande ou vos attentes..." class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-brand-emerald text-sm"></textarea>
+                </div>
+
+                <button type="submit" class="w-full py-4 rounded-xl bg-brand-accent hover:bg-orange-600 text-white font-bold text-base shadow-lg transition-all">
+                    Envoyer votre message
+                </button>
+            </form>
+
+            <div id="formSuccessMessage" class="hidden mt-6 p-4 bg-emerald-800 text-brand-sand rounded-xl text-center text-sm">
+                <i class="fa-solid fa-circle-check mr-2"></i> Merci pour votre message ! Notre équipe reviendra vers vous très rapidement.
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER : CADRE, ÉTHIQUE & GARANTIES -->
+    <footer class="bg-brand-dark text-gray-400 py-12 border-t border-gray-800 text-xs">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+            <div class="grid md:grid-cols-3 gap-6 pb-6 border-b border-gray-800 text-gray-300">
+                <div>
+                    <h4 class="font-bold text-white mb-2"><i class="fa-solid fa-seedling text-brand-sand mr-2"></i> Le Modèle Régénératif</h4>
+                    <p class="text-[11px] font-light leading-relaxed">
+                        5 % du chiffre d'affaires de chaque session est directement reversé pour la régénération du vivant et la préservation de la biodiversité locale.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="font-bold text-white mb-2"><i class="fa-solid fa-shield-halved text-brand-sand mr-2"></i> Cadre d'accompagnement</h4>
+                    <p class="text-[11px] font-light leading-relaxed">
+                        Les Sentiers du Vivant proposent une pédagogie expérientielle non thérapeutique et non médicalisée. L'expérience ne se substitue en aucun cas à un suivi médical.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="font-bold text-white mb-2"><i class="fa-solid fa-hand-holding-heart text-brand-sand mr-2"></i> Avantages SAP (50%)</h4>
+                    <p class="text-[11px] font-light leading-relaxed">
+                        Pour les particuliers/seniors, nos prestations peuvent s'inscrire dans le cadre des Services à la Personne (Crédit d'impôt de 50%) via nos partenaires agréés.
+                    </p>
+                </div>
+            </div>
+
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+                <div class="flex items-center gap-3">
+                    <svg viewBox="0 0 200 240" class="h-10 w-8 text-brand-sand fill-current">
+                        <path d="M100 20 C 130 50, 160 80, 130 110 C 100 140, 60 160, 100 200 C 120 220, 150 230, 160 235 L 140 240 C 110 235, 80 215, 75 190 C 70 160, 120 135, 110 110 C 95 75, 70 50, 100 20 Z"/>
+                        <circle cx="102" cy="14" r="5"/>
+                    </svg>
+                    <div>
+                        <span class="text-white font-bold text-base block leading-none">Les sentiers</span>
+                        <span class="text-brand-accent font-semibold text-xs tracking-wider">Du vivant</span>
+                    </div>
+                </div>
+
+                <div class="flex flex-wrap justify-center gap-6 text-gray-300 font-medium">
+                    <a href="#" class="hover:text-white transition-colors">Accueil</a>
+                    <a href="#methode" class="hover:text-white transition-colors">Méthode</a>
+                    <a href="#agenda" class="hover:text-white transition-colors">Agenda</a>
+                    <a href="#equipe" class="hover:text-white transition-colors">Équipe</a>
+                    <a href="#blog" class="hover:text-white transition-colors">Blog</a>
+                    <a href="#outils" class="hover:text-white transition-colors">Boîte à outils</a>
+                    <a href="#contact" class="hover:text-white transition-colors">Contact</a>
+                </div>
+            </div>
+
+            <div class="pt-6 border-t border-gray-800 text-center text-[11px] text-gray-500 space-y-2">
+                <p>
+                    Porté par NASTRA - Nature & Stratégie (ESS) & Carbon Conseil • SIRET : 931 718 787 00019 • 29 Ave Raymond Barre, 97427 L'Étang-Salé, La Réunion.
+                </p>
+                <p class="text-[10px] text-gray-600">
+                    Licence Creative Commons CC BY-NC-SA 4.0. Marque déposée "Les Sentiers du Vivant".
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- SCRIPTS JAVASCRIPT LOGIC -->
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Filter Sessions in Agenda
+        function filterSessions() {
+            const cat = document.getElementById('filterCategory').value;
+            const terr = document.getElementById('filterTerritory').value;
+            const cards = document.querySelectorAll('.session-card');
+
+            cards.forEach(card => {
+                const matchCat = (cat === 'all' || card.getAttribute('data-category') === cat);
+                const matchTerr = (terr === 'all' || card.getAttribute('data-territory') === terr);
+                
+                if (matchCat && matchTerr) {
+                    card.classList.remove('hidden');
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+        }
+
+        function resetFilters() {
+            document.getElementById('filterCategory').value = 'all';
+            document.getElementById('filterTerritory').value = 'all';
+            filterSessions();
+        }
+
+        // Contact Form Handling
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            const successMsg = document.getElementById('formSuccessMessage');
+            successMsg.classList.remove('hidden');
+            e.target.reset();
+            setTimeout(() => {
+                successMsg.classList.add('hidden');
+            }, 6000);
+        }
+
+        // Tool Download Modal
+        function openToolModal(toolType) {
+            const modal = document.createElement('div');
+            modal.className = 'fixed inset-0 bg-black/80 backdrop-blur-md z-50 flex items-center justify-center p-4';
+            
+            let title = "", content = "", file = "";
+            if(toolType === 'coherence') {
+                title = "Fiche Pratique : Cohérence Cardiaque (Rythme 3-6)";
+                content = "Exercice de régulation autonome : inspirez sur 3 secondes, expirez sur 6 secondes pendant 5 minutes. Permet de stimuler le système parasympathique et d'apaiser le cortex préfrontal.";
+                file = "Fiche_Coherence_Cardiaque_3-6.pdf";
+            } else if(toolType === 'ancrage') {
+                title = "Guide : Exercice d'Ancrage Neuro-Sensoriel 5-4-3-2-1";
+                content = "Pour sortir du pilotage automatique : citez 5 choses que vous voyez, 4 que vous touchez, 3 que vous entendez, 2 que vous sentez, et 1 sensation interne.";
+                file = "Guide_Ancrage_54321.pdf";
+            } else if(toolType === 'panas') {
+                title = "Matrice PANAS : Auto-évaluation de la Présence";
+                content = "Échelle d'évaluation Positive and Negative Affect Schedule pour mesurer la variation de votre état émotionnel avant et après une session de travail complexe.";
+                file = "Matrice_PANAS_LesSentiersDuVivant.pdf";
+            } else if(toolType === 'fiole') {
+                title = "L'Artefact Olfactif : Fiole d'Huile Essentielle";
+                content = "Chaque participant reçoit en fin de marche une fiole végétale d'huile essentielle locale. Une simple respiration permet de réactiver la mémoire olfactive et l'apaisement vécu en forêt.";
+                file = "Guide_Ancrage_Olfactif.pdf";
+            }
+
+            modal.innerHTML = `
+                <div class="bg-white rounded-3xl p-6 sm:p-8 max-w-lg w-full text-gray-800 space-y-4 relative">
+                    <button onclick="this.closest('.fixed').remove()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-800 text-xl font-bold">&times;</button>
+                    <span class="px-3 py-1 bg-brand-emerald text-white text-xs font-bold rounded-full">Boîte à Outils Libre Accès</span>
+                    <h3 class="text-xl font-bold text-brand-emerald">${title}</h3>
+                    <p class="text-xs sm:text-sm text-gray-600 leading-relaxed font-light">${content}</p>
+                    <div class="bg-brand-warmbg p-4 rounded-xl text-xs space-y-1 border border-gray-200">
+                        <p><strong>Format :</strong> Document PDF réutilisable</p>
+                        <p><strong>Licence :</strong> Creative Commons CC BY-NC-SA 4.0</p>
+                    </div>
+                    <button onclick="alert('Téléchargement de ${file} démarré.'); this.closest('.fixed').remove();" class="w-full py-3 bg-brand-accent text-white rounded-xl font-bold text-xs hover:bg-orange-600 transition-colors flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-download"></i> Télécharger le document
+                    </button>
+                </div>
+            `;
+            document.body.appendChild(modal);
+        }
+
+        // LMS Modal Trigger
+        function openLmsModal(e) {
+            if(e) e.preventDefault();
+            const modal = document.createElement('div');
+            modal.className = 'fixed inset-0 bg-black/80 backdrop-blur-md z-50 flex items-center justify-center p-4';
+            modal.innerHTML = `
+                <div class="bg-white rounded-3xl p-6 sm:p-8 max-w-lg w-full text-gray-800 space-y-4 relative">
+                    <button onclick="this.closest('.fixed').remove()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-800 text-xl font-bold">&times;</button>
+                    <span class="px-3 py-1 bg-brand-emerald text-white text-xs font-bold rounded-full">Portail Facilitateurs LMS</span>
+                    <h3 class="text-xl font-bold text-brand-emerald">Formation & Licence de Marque</h3>
+                    <p class="text-xs sm:text-sm text-gray-600 leading-relaxed font-light">
+                        Accès réservé aux praticiens en cours de certification "Les Sentiers du Vivant". Retrouvez les scripts des 6 phases, les grilles POMS/PANAS et le coffre-fort d'ingénierie pédagogique.
+                    </p>
+                    <div class="bg-brand-warmbg p-4 rounded-xl text-xs space-y-1 border border-gray-200">
+                        <p><strong>Prochaine promotion :</strong> La Réunion, Métropole, Caraïbes & Océan Indien</p>
+                    </div>
+                    <button onclick="this.closest('.fixed').remove(); document.getElementById('contact').scrollIntoView({behavior: 'smooth'});" class="w-full py-3 bg-brand-accent text-white rounded-xl font-bold text-xs hover:bg-orange-600 transition-colors">
+                        Postuler au réseau de facilitateurs
+                    </button>
+                </div>
+            `;
+            document.body.appendChild(modal);
+        }
+
+        // Video Mock Modal Trigger
+        document.getElementById('videoMock').addEventListener('click', () => {
+            const modal = document.createElement('div');
+            modal.className = 'fixed inset-0 bg-black/80 backdrop-blur-md z-50 flex items-center justify-center p-4';
+            modal.innerHTML = `
+                <div class="bg-white rounded-3xl p-6 sm:p-8 max-w-lg w-full text-gray-800 space-y-4 relative">
+                    <button onclick="this.closest('.fixed').remove()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-800 text-xl font-bold">&times;</button>
+                    <span class="px-3 py-1 bg-brand-emerald text-white text-xs font-bold rounded-full">Bande-son / Voix-off Immersion</span>
+                    <h3 class="text-xl font-bold text-brand-emerald">Vidéo de Présentation (2:05)</h3>
+                    <p class="text-xs sm:text-sm text-gray-600 leading-relaxed font-light italic">
+                        « Et si, pour une fois, vous preniez une vraie pause. Pas pour fuir… mais pour revenir à l’essentiel. Ici, la nature n’est pas un simple décor. Elle devient un partenaire. Bienvenue dans Les Sentiers du Vivant. »
+                    </p>
+                    <div class="bg-brand-warmbg p-4 rounded-xl text-xs space-y-1 border border-gray-200">
+                        <p><strong>Ambiance sonore :</strong> Forêt de l'Étang-Salé & Nappe organique apaisante</p>
+                    </div>
+                    <button onclick="this.closest('.fixed').remove()" class="w-full py-3 bg-brand-emerald text-white rounded-xl font-bold text-xs">
+                        Fermer l'aperçu
+                    </button>
+                </div>
+            `;
+            document.body.appendChild(modal);
+        });
+    </script>
+</body>
+</html>
