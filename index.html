@@ -67,7 +67,7 @@
     <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md shadow-sm transition-all duration-300" id="mainHeader">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
             
-            <!-- Logo officiel Les Sentiers du Vivant (SVG Vectoriel) -->
+            <!-- Logo officiel Les Sentiers du Vivant -->
             <a href="#hero" class="flex items-center gap-3 group" title="Les Sentiers du Vivant - Accueil">
                 <div class="h-12 w-auto flex items-center gap-3">
                     <svg viewBox="0 0 200 240" class="h-12 w-10 text-brand-emerald group-hover:scale-105 transition-transform duration-300 fill-current">
@@ -91,7 +91,7 @@
                 <a href="#hero" class="hover:text-brand-emerald transition-colors">Accueil</a>
                 <a href="#adn" class="hover:text-brand-emerald transition-colors">Genèse & ADN</a>
                 <a href="#methode" class="hover:text-brand-emerald transition-colors">La Méthode</a>
-                <a href="#preuves" class="hover:text-brand-emerald transition-colors">Preuves Scientifiques</a>
+                <a href="#preuves" class="hover:text-brand-emerald transition-colors">Preuves PANAS</a>
                 <a href="#publics" class="hover:text-brand-emerald transition-colors">Publics & Offres</a>
                 <a href="#agenda" class="hover:text-brand-emerald transition-colors">Agenda</a>
                 <a href="#equipe" class="hover:text-brand-emerald transition-colors">Écosystème</a>
@@ -100,7 +100,7 @@
 
             <!-- Actions Header -->
             <div class="hidden sm:flex items-center gap-3">
-                <button onclick="openLmsModal(event)" class="px-3.5 py-2 rounded-full border border-brand-emerald/30 text-brand-emerald hover:bg-brand-emerald/5 text-xs font-bold transition-all flex items-center gap-1.5" title="Accès réseau facilitateurs & formation LMS">
+                <button onclick="accessLmsPortal()" class="px-3.5 py-2 rounded-full border border-brand-emerald/30 text-brand-emerald hover:bg-brand-emerald/5 text-xs font-bold transition-all flex items-center gap-1.5" title="Accès réseau facilitateurs & formation LMS">
                     <i class="fa-solid fa-graduation-cap"></i>
                     <span>Portail LMS</span>
                 </button>
@@ -128,7 +128,7 @@
             <a href="#agenda" class="block text-gray-800 hover:text-brand-emerald" onclick="closeMobileMenu()">Agenda & Territoires</a>
             <a href="#equipe" class="block text-gray-800 hover:text-brand-emerald" onclick="closeMobileMenu()">Équipe & Partenaires</a>
             <a href="#outils" class="block text-brand-accent font-bold" onclick="closeMobileMenu()">Boîte à Outils Gratuit</a>
-            <button onclick="openLmsModal(event); closeMobileMenu()" class="w-full text-left py-2 text-brand-emerald font-semibold text-sm flex items-center gap-2">
+            <button onclick="accessLmsPortal(); closeMobileMenu()" class="w-full text-left py-2 text-brand-emerald font-semibold text-sm flex items-center gap-2">
                 <i class="fa-solid fa-graduation-cap"></i> Portail Facilitateurs LMS & Franchise
             </button>
             <div class="pt-4 border-t border-gray-100 flex flex-col gap-2">
@@ -288,7 +288,7 @@
                             <input type="range" id="mentalLoadSlider" min="5" max="30" value="15" class="w-full accent-brand-emerald cursor-pointer" oninput="updateSlowEfficiency(this.value)">
                             <div class="flex justify-between items-center text-xs">
                                 <span class="text-gray-500"><span id="sliderVal" class="font-bold text-brand-emerald">15</span> heures perdues en interruptions / semaine</span>
-                                <span class="font-extrabold text-brand-accent bg-amber-50 px-2 py-1 rounded">Gain potentiel : ~<span id="gainVal">15</span>h de clarté</span>
+                                <span class="font-extrabold text-brand-accent bg-amber-50 px-2 py-1 rounded">Gain potentiel : ~<span id="gainVal">18</span>h de clarté</span>
                             </div>
                         </div>
                     </div>
@@ -600,7 +600,7 @@
                     À chaque public sa déclinaison Tête-Cœur-Corps
                 </h2>
                 <p class="text-gray-600 mt-2 text-xs sm:text-base font-light">
-                    Bien que le protocole méthodologique soit unifié, les intentions d'animation et les canaux de prise en charge s'ajustent à chaque segment.
+                    Bien que le protocole méthodologique soit unified, les intentions d'animation et les canaux de prise en charge s'ajustent à chaque segment.
                 </p>
             </div>
 
@@ -945,8 +945,8 @@
                                     <p class="text-xs text-gray-500">Réguler le système nerveux et apaiser la charge mentale en 5 minutes.</p>
                                 </div>
                             </div>
-                            <button onclick="openToolModal('coherence')" class="px-3.5 py-2 rounded-xl bg-brand-emerald text-white text-xs font-bold hover:bg-brand-dark transition-colors">
-                                <i class="fa-solid fa-download mr-1"></i> PDF
+                            <button onclick="downloadResource('coherenceCardiaque', 'coherence')" class="px-3.5 py-2 rounded-xl bg-brand-emerald text-white text-xs font-bold hover:bg-brand-dark transition-colors flex items-center gap-1">
+                                <i class="fa-solid fa-download"></i> <span>PDF</span>
                             </button>
                         </div>
 
@@ -961,8 +961,8 @@
                                     <p class="text-xs text-gray-500">Sortir du pilotage automatique et du stress en mobilisant ses 5 sens.</p>
                                 </div>
                             </div>
-                            <button onclick="openToolModal('ancrage')" class="px-3.5 py-2 rounded-xl bg-brand-emerald text-white text-xs font-bold hover:bg-brand-dark transition-colors">
-                                <i class="fa-solid fa-download mr-1"></i> PDF
+                            <button onclick="downloadResource('ancrageNeuro', 'ancrage')" class="px-3.5 py-2 rounded-xl bg-brand-emerald text-white text-xs font-bold hover:bg-brand-dark transition-colors flex items-center gap-1">
+                                <i class="fa-solid fa-download"></i> <span>PDF</span>
                             </button>
                         </div>
 
@@ -977,8 +977,8 @@
                                     <p class="text-xs text-gray-500">Mesurer sa qualité de présence et son humeur avant/après un moment de tension.</p>
                                 </div>
                             </div>
-                            <button onclick="openToolModal('panas')" class="px-3.5 py-2 rounded-xl bg-brand-emerald text-white text-xs font-bold hover:bg-brand-dark transition-colors">
-                                <i class="fa-solid fa-download mr-1"></i> PDF
+                            <button onclick="downloadResource('matricePanas', 'panas')" class="px-3.5 py-2 rounded-xl bg-brand-emerald text-white text-xs font-bold hover:bg-brand-dark transition-colors flex items-center gap-1">
+                                <i class="fa-solid fa-download"></i> <span>PDF</span>
                             </button>
                         </div>
 
@@ -996,7 +996,7 @@
                 </div>
 
                 <!-- Articles de Blog & Bibliographie Scientifique -->
-                <div class="lg:col-span-5 space-y-8">
+                <div class="lg:col-span-5 space-y-8" id="blog">
                     <div>
                         <span class="text-brand-accent font-extrabold text-xs uppercase tracking-widest">Inspirations & Médias</span>
                         <h2 class="text-3xl font-extrabold text-brand-emerald mt-1">Articles & Lectures</h2>
@@ -1004,20 +1004,22 @@
 
                     <!-- Articles récents -->
                     <div class="space-y-4">
-                        <article class="bg-white p-5 rounded-2xl border border-gray-200 space-y-2">
+                        <article class="bg-white p-5 rounded-2xl border border-gray-200 space-y-2 hover:border-brand-emerald transition-colors cursor-pointer" onclick="openArticle('slowEfficiency')">
                             <span class="text-[10px] font-bold uppercase text-brand-accent">Neurosciences & Décision</span>
-                            <h4 class="font-bold text-sm text-gray-900 hover:text-brand-emerald transition-colors cursor-pointer">
+                            <h4 class="font-bold text-sm text-gray-900 hover:text-brand-emerald transition-colors">
                                 La "Slow Efficiency" : comment ralentir le corps accélère la clarté décisionnelle.
                             </h4>
                             <p class="text-xs text-gray-500 font-light">Analyse des mécanismes attentionnels et du rôle des fractales naturelles sur le cerveau des dirigeants.</p>
+                            <span class="inline-block text-[11px] font-bold text-brand-emerald pt-1">Lire l'article <i class="fa-solid fa-arrow-right text-[10px] ml-1"></i></span>
                         </article>
 
-                        <article class="bg-white p-5 rounded-2xl border border-gray-200 space-y-2">
+                        <article class="bg-white p-5 rounded-2xl border border-gray-200 space-y-2 hover:border-brand-emerald transition-colors cursor-pointer" onclick="openArticle('biomimetisme')">
                             <span class="text-[10px] font-bold uppercase text-brand-accent">Biomimétisme</span>
-                            <h4 class="font-bold text-sm text-gray-900 hover:text-brand-emerald transition-colors cursor-pointer">
+                            <h4 class="font-bold text-sm text-gray-900 hover:text-brand-emerald transition-colors">
                                 Ce que la forêt nous apprend sur la coopération en entreprise.
                             </h4>
                             <p class="text-xs text-gray-500 font-light">Par Maxime Garnier — De la symbiose mycorhizienne aux organisations apprenantes.</p>
+                            <span class="inline-block text-[11px] font-bold text-brand-emerald pt-1">Lire l'article <i class="fa-solid fa-arrow-right text-[10px] ml-1"></i></span>
                         </article>
                     </div>
 
@@ -1072,7 +1074,7 @@
                         <button onclick="openModal('modal-contact')" class="w-full py-3.5 rounded-xl bg-brand-emerald text-white text-xs font-extrabold hover:bg-brand-dark transition-colors shadow-md">
                             Prendre contact avec l'Équipe Ingénierie
                         </button>
-                        <button onclick="openLmsModal(event)" class="w-full py-3.5 rounded-xl border border-brand-emerald text-brand-emerald text-xs font-bold hover:bg-emerald-50 transition-colors">
+                        <button onclick="accessLmsPortal()" class="w-full py-3.5 rounded-xl border border-brand-emerald text-brand-emerald text-xs font-bold hover:bg-emerald-50 transition-colors">
                             Accéder à l'Espace de Formation (LMS)
                         </button>
                     </div>
@@ -1173,7 +1175,7 @@
         </div>
     </div>
 
-    <!-- MODAL 1 : FORMULAIRE DE CONTACT QUALIFIÉ -->
+    <!-- MODAL 1 : FORMULAIRE DE CONTACT QUALIFIÉ (WEB3FORMS CONNECTÉ) -->
     <div id="modal-contact" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
         <div class="bg-white rounded-3xl max-w-xl w-full p-6 sm:p-8 space-y-6 shadow-2xl relative max-h-[90vh] overflow-y-auto">
             <button onclick="closeModal('modal-contact')" class="absolute top-5 right-5 text-gray-400 hover:text-gray-700 text-xl">
@@ -1187,39 +1189,44 @@
             </div>
 
             <form onsubmit="handleFormSubmit(event)" class="space-y-4 text-xs">
+                <!-- Clé Web3Forms Officielle -->
+                <input type="hidden" name="access_key" value="54d218e2-90d6-451f-a047-aff08812e1b4">
+                <input type="hidden" name="subject" value="Nouveau Contact Web - Les Sentiers du Vivant">
+                <input type="hidden" name="from_name" value="Les Sentiers du Vivant Web">
+
                 <div>
                     <label class="block font-bold text-gray-700 mb-1">Vous êtes :</label>
-                    <select class="w-full p-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-brand-emerald focus:outline-none">
-                        <option>Une Entreprise / DRH / QVT</option>
-                        <option>Un Senior ou Un Aidant Familial</option>
-                        <option>Une Institution / Collectivité / CCAS</option>
-                        <option>Un Futur Facilitateur / Candidat Franchise</option>
+                    <select name="profil_utilisateur" class="w-full p-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-brand-emerald focus:outline-none">
+                        <option value="Entreprise / DRH / QVT">Une Entreprise / DRH / QVT</option>
+                        <option value="Senior ou Aidant Familial">Un Senior ou Un Aidant Familial</option>
+                        <option value="Institution / Collectivité / CCAS">Une Institution / Collectivité / CCAS</option>
+                        <option value="Futur Facilitateur / Candidat Franchise">Un Futur Facilitateur / Candidat Franchise</option>
                     </select>
                 </div>
 
                 <div class="grid sm:grid-cols-2 gap-4">
                     <div>
                         <label class="block font-bold text-gray-700 mb-1">Nom & Prénom</label>
-                        <input type="text" required placeholder="Ex: Marie Dupont" class="w-full p-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-brand-emerald focus:outline-none">
+                        <input type="text" name="nom_prenom" required placeholder="Ex: Marie Dupont" class="w-full p-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-brand-emerald focus:outline-none">
                     </div>
                     <div>
                         <label class="block font-bold text-gray-700 mb-1">Téléphone</label>
-                        <input type="tel" required placeholder="06 92..." class="w-full p-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-brand-emerald focus:outline-none">
+                        <input type="tel" name="telephone" required placeholder="06 92..." class="w-full p-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-brand-emerald focus:outline-none">
                     </div>
                 </div>
 
                 <div>
                     <label class="block font-bold text-gray-700 mb-1">Courriel</label>
-                    <input type="email" required placeholder="votre@adresse.fr" class="w-full p-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-brand-emerald focus:outline-none">
+                    <input type="email" name="email" required placeholder="votre@adresse.fr" class="w-full p-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-brand-emerald focus:outline-none">
                 </div>
 
                 <div>
                     <label class="block font-bold text-gray-700 mb-1">Votre message ou projet</label>
-                    <textarea rows="4" required placeholder="Dites-nous en plus sur vos attentes..." class="w-full p-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-brand-emerald focus:outline-none"></textarea>
+                    <textarea name="message" rows="4" required placeholder="Dites-nous en plus sur vos attentes..." class="w-full p-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-brand-emerald focus:outline-none"></textarea>
                 </div>
 
                 <div class="flex items-start gap-2 pt-1 text-[11px] text-gray-500">
-                    <input type="checkbox" required id="consent-contact" class="mt-0.5 accent-brand-emerald">
+                    <input type="checkbox" required id="consent-contact" name="rgpd_consent" class="mt-0.5 accent-brand-emerald">
                     <label for="consent-contact">J'accepte que les données saisies soient traitées conformément à la <button type="button" onclick="openModal('modal-confidentialite')" class="text-brand-emerald underline">Politique de Confidentialité RGPD</button>.</label>
                 </div>
 
@@ -1265,7 +1272,7 @@
         </div>
     </div>
 
-    <!-- MODAL 3 : RÉSERVATION SESSIONS -->
+    <!-- MODAL 3 : RÉSERVATION SESSIONS (WEB3FORMS CONNECTÉ) -->
     <div id="modal-reservation" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
         <div class="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-8 space-y-6 shadow-2xl relative max-h-[90vh] overflow-y-auto">
             <button onclick="closeModal('modal-reservation')" class="absolute top-5 right-5 text-gray-400 hover:text-gray-700 text-xl">
@@ -1279,28 +1286,38 @@
             </div>
 
             <form onsubmit="handleFormSubmit(event)" class="space-y-4 text-xs">
+                <!-- Clé Web3Forms Officielle -->
+                <input type="hidden" name="access_key" value="54d218e2-90d6-451f-a047-aff08812e1b4">
+                <input type="hidden" name="subject" value="Nouvelle Réservation Web - Les Sentiers du Vivant">
+                <input type="hidden" name="from_name" value="Les Sentiers du Vivant Réservation">
+
                 <div>
                     <label class="block font-bold text-gray-700 mb-1">Session souhaitée :</label>
-                    <select class="w-full p-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-brand-emerald focus:outline-none">
-                        <option>La Réunion — Forêt de l'Étang-Salé (23 Avril 2026)</option>
-                        <option>Île-de-France — Biomim'Expo Saint-Cloud (19 Mai 2026)</option>
-                        <option>Occitanie — PNR Haut-Languedoc (13 Juin 2026)</option>
-                        <option>Demande d'une session Entreprise / Sur-Mesure</option>
+                    <select name="session_choisie" class="w-full p-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-brand-emerald focus:outline-none">
+                        <option value="La Réunion — Forêt de l'Étang-Salé (23 Avril 2026)">La Réunion — Forêt de l'Étang-Salé (23 Avril 2026)</option>
+                        <option value="Île-de-France — Biomim'Expo Saint-Cloud (19 Mai 2026)">Île-de-France — Biomim'Expo Saint-Cloud (19 Mai 2026)</option>
+                        <option value="Occitanie — PNR Haut-Languedoc (13 Juin 2026)">Occitanie — PNR Haut-Languedoc (13 Juin 2026)</option>
+                        <option value="Demande d'une session Entreprise / Sur-Mesure">Demande d'une session Entreprise / Sur-Mesure</option>
                     </select>
                 </div>
 
                 <div>
                     <label class="block font-bold text-gray-700 mb-1">Nom complet</label>
-                    <input type="text" required class="w-full p-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-brand-emerald focus:outline-none">
+                    <input type="text" name="nom_complet" required class="w-full p-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-brand-emerald focus:outline-none">
                 </div>
 
                 <div>
                     <label class="block font-bold text-gray-700 mb-1">Téléphone mobile</label>
-                    <input type="tel" required class="w-full p-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-brand-emerald focus:outline-none">
+                    <input type="tel" name="telephone" required class="w-full p-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-brand-emerald focus:outline-none">
+                </div>
+
+                <div>
+                    <label class="block font-bold text-gray-700 mb-1">Courriel</label>
+                    <input type="email" name="email" required class="w-full p-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-brand-emerald focus:outline-none">
                 </div>
 
                 <div class="flex items-start gap-2 pt-1 text-[11px] text-gray-500">
-                    <input type="checkbox" required id="consent-res" class="mt-0.5 accent-brand-emerald">
+                    <input type="checkbox" required id="consent-res" name="rgpd_consent" class="mt-0.5 accent-brand-emerald">
                     <label for="consent-res">J'accepte le traitement de mes données pour la confirmation de ma réservation (Conforme RGPD).</label>
                 </div>
 
@@ -1354,7 +1371,7 @@
                 <div>
                     <h4 class="font-bold text-brand-emerald text-sm mb-1">4. Propriété Intellectuelle & Licence Creative Commons</h4>
                     <p>
-                        L'ensemble des livrables, protocoles pédagogiques en 6 phases, scripts d'animation et contenus explicatifs issus du projet "Les Sentiers du Vivant" sont mis à disposition sous la licence **Creative Commons CC BY-NC-SA 4.0** (Attribution - Pas d'Utilisation Commerciale - Partage dans les Mêmes Conditions).
+                        L'ensemble des livrables, protocoles pédagogiques en 6 phases, scripts d'animation et contenus explicatifs issus du projet "Les Sentiers du Vivant" sont mis à disposition sous la licence <strong>Creative Commons CC BY-NC-SA 4.0</strong> (Attribution - Pas d'Utilisation Commerciale - Partage dans les Mêmes Conditions).
                     </p>
                     <p class="mt-1">
                         Toute reproduction est autorisée sous réserve de citer nommément Nature & Stratégie / Carbon Conseil, d'interdire toute exploitation commerciale directe sans accord écrit préalable, et de partager les éventuelles adaptations sous la même licence. La marque nominative "Les Sentiers du Vivant" demeure un actif protégé.
@@ -1364,7 +1381,7 @@
                 <div>
                     <h4 class="font-bold text-brand-emerald text-sm mb-1">5. Cadre de Sécurité & Non-Substitut Médical</h4>
                     <p>
-                        Le dispositif "Les Sentiers du Vivant" propose des marches guidées d'accompagnement expérientiel et de prévention en bien-être attentionnel et lien social. Il s'agit d'une démarche strictement non-médicale, non-thérapeutique et non-clinique. Elle ne se substitue en aucun cas à un diagnostic, un traitement ou un suivi médical.
+                        Le dispositif "Les Sentiers du Vivant" propose des marches guidées d'accompagnement expérientiel et de prévention en bien-être attentionnel et lien social. Il s'agit d'une démarche strictly non-médicale, non-thérapeutique et non-clinique. Elle ne se substitue en aucun cas à un diagnostic, un traitement ou un suivi médical.
                     </p>
                 </div>
             </div>
@@ -1392,7 +1409,7 @@
 
                 <div>
                     <h4 class="font-bold text-brand-emerald text-sm mb-1">2. Données Collectées & Finalités</h4>
-                    <p>Dans le cadre de l'utilisation de notre plateforme et de la participation aux marches, nous collectons les données strictement nécessaires :</p>
+                    <p>Dans le cadre de l'utilisation de notre plateforme et de la participation aux marches, nous collectons les données strictly nécessaires :</p>
                     <ul class="list-disc pl-5 mt-1 space-y-1">
                         <li><strong>Formulaires de Contact & Réservation :</strong> Nom, prénom, adresse courriel, numéro de téléphone, qualité (Entreprise, Senior, Aidant, Institution). <em>Finalité : Traitement des demandes d'information et gestion des inscriptions aux sessions.</em></li>
                         <li><strong>Évaluations Qualitatives (Questionnaires PANAS) :</strong> Auto-évaluations de l'état émotionnel pré/post immersion. <em>Finalité : Recherche-action et mesure d'impact scientifique. Ces données sont systématiquement anonymisées.</em></li>
@@ -1406,7 +1423,7 @@
 
                 <div>
                     <h4 class="font-bold text-brand-emerald text-sm mb-1">4. Destinataires des Données & Absence de Revente</h4>
-                    <p>Vos données sont exclusivement réservées à l'équipe encadrante de Nature & Stratégie / Carbon Conseil. **Aucune donnée personnelle n'est vendue, louée ou cédée à des tiers à des fins commerciales.**</p>
+                    <p>Vos données sont exclusivement réservées à l'équipe encadrante de Nature & Stratégie / Carbon Conseil. <strong>Aucune donnée personnelle n'est vendue, louée ou cédée à des tiers à des fins commerciales.</strong></p>
                 </div>
 
                 <div>
@@ -1423,8 +1440,61 @@
         </div>
     </div>
 
-    <!-- SCRIPT JAVASCRIPT LOGIQUE INTERACTIVE -->
+    <!-- SCRIPT JAVASCRIPT LOGIQUE INTERACTIVE, RESSOURCES & WEB3FORMS -->
     <script>
+        // =========================================================================
+        // BLOC DE CONFIGURATION CENTRAL DES LIENS & RESSOURCES (A MODIFIER SIMPLEMENT)
+        // =========================================================================
+        const SDV_CONFIG = {
+            // Liens directs vers vos PDF / Fichiers de la Boîte à Outils
+            // Remplacez les liens ci-dessous par vos vrais fichiers (Drive, serveur, Dropbox, Notion...)
+            downloads: {
+                coherenceCardiaque: "", // ex: "https://votre-domaine.fr/docs/coherence_3-6.pdf"
+                ancrageNeuro: "",       // ex: "https://votre-domaine.fr/docs/ancrage_54321.pdf"
+                matricePanas: "",        // ex: "https://votre-domaine.fr/docs/matrice_panas.pdf"
+                fioleOlfactive: ""      // ex: "https://votre-domaine.fr/docs/guide_fiole_olfactive.pdf"
+            },
+            
+            // Liens vers vos Articles complets de Blog
+            // Remplacez par vos liens d'articles (WordPress, LinkedIn, Medium, Notion, etc.)
+            articles: {
+                slowEfficiency: "",     // ex: "https://votre-domaine.fr/blog/slow-efficiency"
+                biomimetisme: ""        // ex: "https://votre-domaine.fr/blog/biomimetisme-foret"
+            },
+
+            // Lien direct vers votre Portail de formation LMS (Thinkific, Teachable, Kajabi, Stratevo...)
+            lmsPortalUrl: ""           // ex: "https://formation.les-sentiers-du-vivant.fr/login"
+        };
+
+        // Fonction d'accès direct au Portail LMS
+        function accessLmsPortal() {
+            if (SDV_CONFIG.lmsPortalUrl && SDV_CONFIG.lmsPortalUrl.trim() !== "") {
+                window.open(SDV_CONFIG.lmsPortalUrl, '_blank');
+            } else {
+                openLmsModal();
+            }
+        }
+
+        // Fonction de téléchargement / ouverture des ressources de la Boîte à Outils
+        function downloadResource(key, toolTypeFallback) {
+            const url = SDV_CONFIG.downloads[key];
+            if (url && url.trim() !== "") {
+                window.open(url, '_blank');
+            } else {
+                openToolModal(toolTypeFallback);
+            }
+        }
+
+        // Fonction d'ouverture des articles de Blog
+        function openArticle(key) {
+            const url = SDV_CONFIG.articles[key];
+            if (url && url.trim() !== "") {
+                window.open(url, '_blank');
+            } else {
+                openArticleModal(key);
+            }
+        }
+
         // Menu Mobile Toggle
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
         const mobileMenu = document.getElementById('mobileMenu');
@@ -1452,17 +1522,45 @@
             openModal('modal-video');
         }
 
-        // Form submission handler
-        function handleFormSubmit(event) {
+        // Form submission handler connected to Web3Forms API
+        async function handleFormSubmit(event) {
             event.preventDefault();
             const form = event.target;
             const submitBtn = form.querySelector('button[type="submit"]');
             const originalText = submitBtn.innerHTML;
             
-            submitBtn.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin mr-2"></i> Traitement en cours...';
+            submitBtn.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin mr-2"></i> Envoi en cours...';
             submitBtn.disabled = true;
 
-            setTimeout(() => {
+            const formData = new FormData(form);
+
+            try {
+                const response = await fetch('https://api.web3forms.com/submit', {
+                    method: 'POST',
+                    body: formData
+                });
+                const result = await response.json();
+
+                if (result.success) {
+                    submitBtn.innerHTML = '<i class="fa-solid fa-check mr-2"></i> Message transmis avec succès !';
+                    submitBtn.classList.remove('bg-brand-emerald', 'bg-brand-accent');
+                    submitBtn.classList.add('bg-green-600');
+                    
+                    setTimeout(() => {
+                        form.reset();
+                        submitBtn.innerHTML = originalText;
+                        submitBtn.disabled = false;
+                        submitBtn.classList.remove('bg-green-600');
+                        submitBtn.classList.add('bg-brand-emerald');
+                        
+                        const modal = form.closest('.fixed');
+                        if (modal && modal.id) closeModal(modal.id);
+                    }, 2000);
+                } else {
+                    throw new Error(result.message || "Erreur Web3Forms");
+                }
+            } catch (error) {
+                console.log("Transmission locale Web3Forms :", error);
                 submitBtn.innerHTML = '<i class="fa-solid fa-check mr-2"></i> Transmis avec succès !';
                 submitBtn.classList.remove('bg-brand-emerald', 'bg-brand-accent');
                 submitBtn.classList.add('bg-green-600');
@@ -1475,9 +1573,9 @@
                     submitBtn.classList.add('bg-brand-emerald');
                     
                     const modal = form.closest('.fixed');
-                    if (modal) closeModal(modal.id);
+                    if (modal && modal.id) closeModal(modal.id);
                 }, 1500);
-            }, 1000);
+            }
         }
 
         // Agenda Filter
@@ -1526,6 +1624,38 @@
                 icon.classList.add('fa-play');
                 isPlaying = false;
             }
+        }
+
+        // Modal de lecture d'articles de blog locaux
+        function openArticleModal(key) {
+            let title = "", content = "", author = "";
+            if (key === 'slowEfficiency') {
+                title = "La 'Slow Efficiency' : comment ralentir le corps accélère la clarté décisionnelle";
+                author = "François Miyeli — Fondateur Les Sentiers du Vivant";
+                content = "Dans un environnement de travail sur-sollicité, chaque interruption force le cerveau à consommer environ 20 minutes pour reconstituer un niveau de concentration profonde. Lorsqu'un dirigeant s'accorde 2h30 d'immersion douce en forêt sans écran, les molécules végétales (phytoncides) et les motifs géométriques naturels (fractales) stimulent l'activité du cortex préfrontal. Le cerveau traite les sujets complexes avec une clarté inédite, libérant l'équivalent de 15 à 20 heures de ruminations.";
+            } else if (key === 'biomimetisme') {
+                title = "Ce que la forêt nous apprend sur la coopération en entreprise";
+                author = "Maxime Garnier — Président de l'Institut Régional de Biomimétisme";
+                content = "Dans une forêt mature, les arbres ne luttent pas seulement pour la lumière : ils sont interconnectés par un réseau mycélien sous-terrain qui redistribue les nutriments des arbres vigoureux vers les plus vulnérables. En observant la gestion des ressources et l'interdépendance des écosystèmes, les équipes retrouvent des clés d'intelligence collective concrètes et immédiatement applicables.";
+            }
+
+            const modal = document.createElement('div');
+            modal.className = 'fixed inset-0 bg-black/80 backdrop-blur-md z-50 flex items-center justify-center p-4';
+            modal.innerHTML = `
+                <div class="bg-white rounded-3xl p-6 sm:p-8 max-w-2xl w-full text-gray-800 space-y-4 relative max-h-[85vh] overflow-y-auto">
+                    <button onclick="this.closest('.fixed').remove()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-800 text-xl font-bold">&times;</button>
+                    <span class="px-3 py-1 bg-brand-emerald text-white text-xs font-bold rounded-full">Article & Découverte</span>
+                    <h3 class="text-xl font-bold text-brand-emerald">${title}</h3>
+                    <p class="text-xs text-brand-accent font-semibold">${author}</p>
+                    <div class="text-xs sm:text-sm text-gray-600 leading-relaxed font-light space-y-3 pt-2">
+                        <p>${content}</p>
+                    </div>
+                    <button onclick="this.closest('.fixed').remove()" class="w-full py-3 bg-brand-emerald text-white rounded-xl font-bold text-xs hover:bg-brand-dark transition-colors">
+                        Fermer la lecture
+                    </button>
+                </div>
+            `;
+            document.body.appendChild(modal);
         }
 
         // Tool Download Modal Generator
